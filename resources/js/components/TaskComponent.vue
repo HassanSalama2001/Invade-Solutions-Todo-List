@@ -526,7 +526,6 @@ export default {
             if (this.taskData.title && this.taskData.date && this.taskData.time) {
                 axios.put('/api/task/' + this.taskData.id, this.taskData)
                     .then(response => {
-                        console.log(response);
                         this.getTasks();
                     })
                     .catch(errors => {
@@ -566,7 +565,7 @@ export default {
                 time: '',
                 description: '',
                 category_id: null,
-                status: '',
+                status: 'Pending',
                 due_date: ''
             }
             this.taskErrors = {
@@ -580,9 +579,9 @@ export default {
             this.taskData.title == '' ? this.taskErrors.title = true : this.taskErrors.title = false;
             this.taskData.date == '' ? this.taskErrors.date = true : this.taskErrors.date = false;
             this.taskData.time == '' ? this.taskErrors.time = true : this.taskErrors.time = false;
-            this.taskData.status == '' ? this.taskData.status = 'pending' : this.taskData.status;
-
+            this.taskData.status = 'Pending';
             if (this.taskData.title && this.taskData.date && this.taskData.time) {
+                console.log(this.taskData);
                 axios.post('/api/task/store', this.taskData)
                     .then(response => {
                         this.getTasks();

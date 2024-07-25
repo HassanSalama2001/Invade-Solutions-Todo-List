@@ -29,13 +29,13 @@ Route::prefix('/task')->group(function() {
     Route::delete('/{task_id}', [TaskController::class, 'destroy']);
     Route::post('/retrieve/{task_id}', [TaskController::class, 'retrieve']);
 
-    Route::prefix('/{task_id}/subTask')->group(function() {
-        Route::post('/store', [SubTaskController::class, 'store']);
-        Route::put('/{subTask_id}', [SubTaskController::class, 'update']);
-        Route::delete('/{subTask_id}', [SubTaskController::class, 'destroy']);
-        Route::post('/{subTask_id}/markAsComplete', [SubTaskController::class, 'markAsComplete']);
-        Route::post('/{subTask_id}/markAsIncomplete', [SubTaskController::class, 'markAsIncomplete']);
-    });
+    // Route::prefix('/{task_id}/subTask')->group(function() {
+    //     Route::post('/store', [SubTaskController::class, 'store']);
+    //     Route::put('/{subTask_id}', [SubTaskController::class, 'update']);
+    //     Route::delete('/{subTask_id}', [SubTaskController::class, 'destroy']);
+    //     Route::post('/{subTask_id}/markAsComplete', [SubTaskController::class, 'markAsComplete']);
+    //     Route::post('/{subTask_id}/markAsIncomplete', [SubTaskController::class, 'markAsIncomplete']);
+    // });
 });
 
 Route::get('/categories', [CategoryController::class, 'index']);

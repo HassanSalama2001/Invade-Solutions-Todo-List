@@ -57,6 +57,7 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
+        dump($request->status);
         Task::create([
             'title' => $request->title,
             'date' => $request->date,
@@ -64,7 +65,7 @@ class TaskController extends Controller
             'description' => $request->description,
             'category_id' => $request->category_id,
             'due_date' => $request->due_date,  // Add due_date to store
-            'status' => $request->status,  // Add status to store
+            'status' => 'Pending',  // Add status to store
         ]);
         return response()->json(['message' => 'Task Created Successfully'], 201);
     }
